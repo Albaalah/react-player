@@ -1,5 +1,12 @@
 import React, {Fragment, useState} from "react";
 import {opIcons, opText} from './../../utils';
+import styled from 'styled-components';
+
+const Button = styled.button`
+    width: 100px !important;
+    color: white;
+    background: ${props => (props.primary ? 'brown' : 'chocolate')};
+`;
 
 export default function OpButton() {
   const [icon, setIcon] = useState(opIcons.PLAY);
@@ -17,9 +24,9 @@ export default function OpButton() {
   }
 
   return <Fragment>
-    <button onClick={toggleClick}>
+    <Button onClick={toggleClick} primary={icon === opIcons.PLAY}>
       <i className={`fa ${icon}`}/>
-    </button>
+    </Button>
     <div>{opBtnText}</div>
   </Fragment>
 }
