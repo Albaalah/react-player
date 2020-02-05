@@ -1,3 +1,6 @@
+/*
+* Main Concept: Higher Order Components
+* */
 import React from 'react';
 import Draggable from "react-draggable";
 import styled from "styled-components";
