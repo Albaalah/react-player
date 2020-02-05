@@ -3,9 +3,9 @@
 * */
 import * as React from "react"
 import styled from "styled-components";
-import WithDrag from "../../hoc/withDrag";
-import SingleBar from "../singleBar";
-import Clef from "../clef";
+import WithDrag from "../hoc/withDrag/index";
+import SingleBar from "./singleBar/index";
+import Clef from "./clef/index";
 
 const DraggableBar = WithDrag(SingleBar) as any;
 const DraggableClef = WithDrag(Clef) as any;

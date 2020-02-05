@@ -13,7 +13,7 @@ const Button = styled.button`
     background: ${props => (props.primary ? 'brown' : 'chocolate')};
 `;
 
-export default function OpButton() {
+export default function OpButton({volume = 100}) {
     const [icon, setIcon] = useState(opIcons.PLAY);
     const [opBtnText, setText] = useState(opText.PLAY);
 
@@ -32,7 +32,7 @@ export default function OpButton() {
         <Button onClick={toggleClick} primary={icon === opIcons.PLAY}>
             <i className={`fa ${icon}`}/>
         </Button>
-        {<SoundPlayer play={opBtnText === opText.PAUSE}/>}
+        {<SoundPlayer play={opBtnText === opText.PAUSE} volume={volume}/>}
         <div>{opBtnText}</div>
     </div>
 }
