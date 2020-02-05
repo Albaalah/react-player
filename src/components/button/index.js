@@ -32,7 +32,7 @@ export default function OpButton({volume = 100}) {
         <Button onClick={toggleClick} primary={icon === opIcons.PLAY}>
             <i className={`fa ${icon}`}/>
         </Button>
-        {<SoundPlayer play={opBtnText === opText.PAUSE} volume={volume}/>}
+        <SoundPlayer play={opBtnText === opText.PAUSE}/>
         <div>{opBtnText}</div>
     </div>
 }

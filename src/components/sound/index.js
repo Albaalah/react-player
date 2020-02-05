@@ -1,6 +1,9 @@
-import React from 'react';
+// Context API: Consumer 2
+
+import React, {Fragment} from 'react';
 import Sound from 'react-sound';
 import mp3File from '../../assets/audio/Amelie.mp3';
+import VolumeContext from "../../utils/volumeContext";
 
 class SoundPlayer extends React.Component {
     constructor(props) {
@@ -12,16 +15,21 @@ class SoundPlayer extends React.Component {
 
     render() {
         const {position = 300} = this.state;
-        const {play = false, volume = 100} = this.props;
-        return (
-            <Sound
-                url={mp3File}
-                playStatus={play ? Sound.status.PLAYING : Sound.status.PAUSE}
-                playFromPosition={position}
-                loop={true}
-                volume={volume}
-                onPause={({position}) => this.setState({position})}
-            />
+        const {play = false} = this.props;
+        return (<VolumeContext.Consumer>
+                {context => (
+                    <Fragment>
+                        <Sound
+                            url={mp3File}
+                            playStatus={play ? Sound.status.PLAYING : Sound.status.PAUSE}
+                            playFromPosition={position}
+                            loop={true}
+                            volume={context.volume}
+                            onPause={({position}) => this.setState({position})}
+                        />
+                    </Fragment>
+                )}
+            </VolumeContext.Consumer>
         );
     }
 }
