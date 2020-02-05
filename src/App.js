@@ -1,26 +1,20 @@
 import React from 'react';
-import logo from './logo.svg';
+import OpButton from "./components/button";
+import SingleBar from "./components/notes/singleBar";
+import Clef from "./components/notes/clef";
 import './App.css';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  return <div className="App">
+    <header className="App-header d-flex justify-content-start">
+      <div className='d-flex row m-4'>
+        <SingleBar/>
+        <div style={{'margin-right': '500px', 'margin-left': '500px', 'margin-bottom': '200px'}}/>
+        <Clef/>
+      </div>
+      <OpButton/>
+    </header>
+  </div>
 }
 
 export default App;
